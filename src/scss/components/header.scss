@@ -1,8 +1,8 @@
 // =====================================================================================================================
 .header {
   width: 100%;
-  padding: 10px 0;
-  background-color: $blackColor;
+  background: rgba(30, 36, 42, 0.7);
+  transition: all 0.6s ease-in-out;
 
   .header__container {
     .header__nav-logo {
@@ -22,12 +22,13 @@
   }
 
   &.sticky {
-    @media only screen and (max-width: 992px) {
       position: fixed;
       width: 100%;
       z-index: 100;
-      background-color: $blackColor;
-    }
+  }
+
+  &.dark-background {
+    background: rgba(30, 36, 42, 0.9);
   }
   
 
@@ -49,36 +50,6 @@
           li {
             margin-right: 16px;
             
-            &:last-child {
-              margin-right: 0;
-            }
-          }
-        }
-
-        .menu__social {
-          align-items: center;
-          padding: 0;
-
-          li {
-            margin-right: 16px;
-
-            a {
-              svg {
-                height: 20px;
-                width: 20px;
-
-                &:hover {
-                  path {
-                    color: white;
-                  }
-                }
-              }
-
-              svg path {
-                color: $orangeColor;
-              }
-            }
-
             &:last-child {
               margin-right: 0;
             }

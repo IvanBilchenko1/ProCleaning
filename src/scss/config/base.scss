@@ -11,16 +11,16 @@ body {
 .sticky-link {
   position: fixed;
   top: 50%;
-  right: 0;
-  transform: translateY(-50%) rotate(180deg);
+  left: 0;
+  transform: translateY(-50%) rotate(0);
   transform-origin: center;
   writing-mode: vertical-rl;
-  background-color: #000;
+  background-color: #3370ad;
   font-family: $fontFamily;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   border: 1px solid #fff;
   border-left: none;
-  padding: 16px 16px 16px 4px;
+  padding: 16px 10px 16px 10px;
   border-radius: 0 8px 8px 0;
   transition: letter-spacing 0.3s;
 
@@ -47,6 +47,10 @@ body {
 */
 .full-container {
   margin: 0 76px;
+}
+
+.main__container_home-page {
+  max-width: 50% !important;
 }
 
 [class*='__container'] {
@@ -122,12 +126,7 @@ li {
   }
 }
 // Оболочка ===================================================================
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  overflow: hidden; // clip - если используется в проекте position: sticky
-}
+
 
 .page {
   position: relative;

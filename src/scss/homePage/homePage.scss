@@ -1,29 +1,105 @@
 //main block start
 .start-block {
     position: relative;
-    background: url('../images/orange-car.jpg') no-repeat center/cover;
-    background-position: center;
+}
 
-    @media only screen and (max-width: 992px) {
-        background: url('../images/orange-car-mobile.jpg') no-repeat center/cover;
+.main-block-wrapper {
+    .slick-next {
+        right: 45px;
+    
+        &::before {
+            color: $orangeColor;
+            display: none;
+        }
+    
+        svg {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            padding: 8px;
+    
+            path {
+                color: black;
+            }
+        }
+    }
+    
+    .slick-prev {
+        display: none;
+    }
+}
+
+.start-block-footer {
+    background-color: #204163;
+    border-bottom: 5px solid rgb(74 128 195);
+    border-top: 5px solid rgb(43 71 107);
+    padding: 20px 0;
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 0;
+        line-height: 36px;
+    }
+
+    p {
+        font-size: 24px;
+
+        em {
+            font-size: 40px;
+            font-family: Source serif pro;
+            color: #BD9A51;
+        }
+    }
+
+    .main-block-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .get-started {
+        a {
+            cursor: pointer;
+            padding: 16px 32px;
+            background-color: #BD9A51;
+            border-radius: 6px;
+            transition: all .5s;
+
+            &:hover {
+                background-color: #816938;
+            }
+        }
     }
 }
 
 .main-page {
     padding: $mainPadding;
 
+    &.image-one {
+        background: url('../images/main-blue.jpg') no-repeat center/cover;
+        background-position: center;
+    }
+
+    &.image-two {
+        background: url('../images/home-page-banner.jpg') no-repeat center/cover;
+        background-position: center;
+    }
+
     @media only screen and (max-width: 455px) {
         padding: 225px 0px 280px 0px;
     }
 
+    .main-title {
+        background: rgba(0,0,0,0.2);
+        width: 100% !important;
+        padding: 16px 0;
+    }
+
     .main-title-text {
-        font-size: $text-56;
+        font-size: $text-42;
 
         @media only screen and (max-width: 550px) {
-            font-size: $text-42;
-        }
-
-        @media only screen and (max-width: 412px) {
             font-size: $text-32;
         }
     }
@@ -156,7 +232,7 @@
 
 //about block start
 .about-block {
-    margin: 100px 0px 180px 0px;
+    margin: 50px 0px 120px 0px;
 
     @media only screen and (max-width: 992px) {
         margin: 0px 0px 120px 0px;
@@ -217,7 +293,7 @@
                     p {
                         font-size: 17px;
                         font-weight: 500;
-                        line-height: 30px;
+                        line-height: 26px;
                         letter-spacing: 3px;
                         margin-bottom: 0px;
 
@@ -258,22 +334,22 @@
                         font-size: 15px;
                         font-weight: bold;
                         letter-spacing: 5px;
-                        fill: #000;
-                        color: #000;
+                        fill: $orangeColor;
                         text-transform: uppercase;
                         background-color: #02010100;
                         border-style: solid;
                         border-width: 0px 0px 2px 0px;
-                        border-color: #000;
+                        border-color: $orangeColor;
                         border-radius: 0px 0px 0px 0px;
                         padding: 10px;
+                        color: $orangeColor;
 
                         @media only screen and (max-width: 992px) {
                             font-size: 12px;
                         }
 
                         svg path {
-                            fill: black;
+                            fill: $orangeColor;
                         }
                     }
                 }
@@ -281,70 +357,47 @@
 
             .about-us-image {
                 .image {
-                    width: 600px;
-                    height: 350px;
-                    position: relative;
-                    cursor: pointer;
-
-                    @media only screen and (max-width: 992px) {
-                        margin: 0 auto;
-                        width: 100%;
-                    }
-                  
-                    span {
-                      position: absolute;
-                      background: url('../images/car.png') no-repeat center/cover;
-                      inset: 0;
-                      transition: 0.6s ease-in-out;
-
-                      @media only screen and (min-width: 992px) {
-                            &:nth-child(1) {
-                            clip-path: polygon(0 0, 50% 0, 50% 50%, 0 50%);
-                            transition-delay: 0;
-                            }
-                      
-                            &:nth-child(2) {
-                                clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 50%);
-                                transition-delay: 0.25s;
-                            }
-                        
-                            &:nth-child(3) {
-                                clip-path: polygon(0 50%, 50% 50%, 50% 100%, 0 100%);
-                                transition-delay: 0.5s;
-                            }
-                        
-                            &:nth-child(4) {
-                                clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
-                                transition-delay: 0.75s;
-                            }
-                        }
-                    }
-
-                    @media only screen and (min-width: 992px) {
-                        /* Hover Effects */
-                        &:hover {
-                            span:nth-child(1) {
-                            transform: translate(-40px, -60px) rotate(-15deg);
-                            }
-                        
-                            span:nth-child(2) {
-                            transform: translate(40px, -100px) rotate(25deg);
-                            }
-                        
-                            span:nth-child(3) {
-                            transform: translate(-40px, 80px) rotate(15deg);
-                            }
-                        
-                            span:nth-child(4) {
-                            transform: translate(40px, 80px) rotate(-15deg);
-                            }
-                        }
-                    }
+                    background: url('../images/car.jpg') no-repeat center/cover;
+                    width: 500px;
+                    height: 575px;
                 }
             }
         }
     }
 }
+
+.space-area h1 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #fff;
+  }
+  .count-area {
+      position: relative;
+      background:#4070a1;
+      text-align: center;
+      padding-bottom: 30px;
+      color: #fff;
+  }
+  .count-area-content {
+      margin-top: 30px;
+  }
+  .count-area i {
+      font-size: 48px;
+  }
+  .count-digit {
+      margin: 20px 0px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 50px;
+  }
+  .count-title {
+      font-size: 20px;
+  }
 
 //How it works start
 
@@ -769,225 +822,9 @@
     }
 }
 
-// Plans 
-
-.packages-block {
-    background-color: #000;
-    padding: 120px 0 200px 0;
-
-    @media only screen and (max-width: 794px) {
-        padding: 42px 0 82px 0;
-    }
-
-    .section-head {
-        text-align: center;
-        margin-bottom: 48px;
-
-        @media only screen and (max-width: 992px) {
-            margin-bottom: 32px;
-        }
-        h2 {
-            font-size: 42px;
-            font-weight: 800;
-
-            @media only screen and (max-width: 992px) {
-                font-size: 30px;
-            }
-        }
-
-        p {
-            letter-spacing: 2px;
-        }
-    }
-}
-
-.pricing-plan {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-
-    @media only screen and (max-width: 794px) {
-        flex-direction: column;
-    }    
-
-    .price-description {
-        p {
-            color: #000;
-            cursor: default;
-        }
-    }
-  
-    .plan {
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      background-color: #fff;
-      color: #000;
-      box-shadow: 4px 0 10px rgb(255 255 255);
-      padding: 23px;
-      min-width: 220px;
-      flex: 1;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-direction: column;
-      transition: transform 0.2s ease-in-out;
-
-        &:hover {
-            @media only screen and (min-width: 992px) {
-                transform: scale(1.02);
-            }
-        }
-  
-        .price {
-            display: flex;
-            align-items: flex-start;
-            gap: 7px;
-            color: #000;
-            margin-bottom: 20px;
-            cursor: default;
-    
-        .whole {
-            font-weight: bold;
-            font-size: 35px;
-            color: #000;
-            cursor: default;
-        }
-    
-        .cent {
-            font-weight: bold;
-            cursor: default;
-            color: #000;
-            margin-bottom: 8px;
-        }
-      }
-  
-      .button {
-        color: #fff;
-        background-color: $orangeColor;
-        text-decoration: none;
-        display: inline-block;
-        width: 100%;
-        text-transform: uppercase;
-        font-weight: 800;
-        text-align: center;
-        padding: 10px 20px;
-        border-radius: 6px;
-        box-shadow: 1px 0 4px rgba(0, 0, 0, 0.4);
-        margin-bottom: 20px;
-        transition: translate 0.2s;
-
-        @media only screen and (max-width: 992px) {
-            padding: 14px 20px;
-        }
-
-        &:hover {
-            @media only screen and (min-width: 992px) {
-                background-color: #000;
-                transition: translate 0.2s;
-            }
-        }
-      }
-  
-      .title {
-        font-weight: 600;
-        color: #000;
-        margin-bottom: 12px;
-        cursor: default;
-        
-      }
-  
-      ul {
-        color: #000;
-        list-style-type: none;
-      }
-  
-      ul li {
-        color: #000;
-        margin-bottom: 8px;
-        cursor: default;
-        position: relative;
-
-        &:hover {
-            text-decoration: none;
-        }
-      }
-  
-      ul li::before {
-        content: "";
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        background-image: url("https://assets.codepen.io/9277864/check.svg");
-        margin-right: 5px;
-        filter: invert(85%) sepia(22%) saturate(6528%) hue-rotate(322deg) brightness(94%) contrast(91%);
-        position: absolute;
-        top: 50%;
-        left: -28px;
-        transform: translateY(-50%);
-      }
-  
-      .tooltip:hover {
-        cursor: help;
-      }
-  
-      .first-cut {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-
-        h2 {
-            color: $orangeColor;
-            font-size: 20px;
-            margin-bottom: 16px;
-            cursor: default;
-        }
-      }
-    }
-  
-    .best {
-      position: relative;
-    }
-
-    .price-details {
-        p {
-            color: #000;
-            font-weight: 800;
-        }
-    }
-
-    .popular {
-      position: absolute;
-      top: -65px;
-      right: -57.5px;
-      width: 100px;
-      height: 200px;
-      overflow: hidden;
-      transform: rotate(-45deg);
-  
-      .inner {
-        transform: rotate(45deg);
-        background-color: #fb394b;
-        width: 100px;
-        height: 100px;
-        top: 20px;
-        left: -50px;
-        position: relative;
-        border-top-right-radius: 10px;
-  
-        p {
-          font-weight: bold;
-          font-size: 18px;
-          transform: rotate(46deg) translate(26px, -4px);
-          color: #000;
-          text-align: center;
-        }
-      }
-    }
-}
-
 // vehecleSize section
 .v-size-block {
-    padding: 120px 0 200px 0;
+    padding: 60px 0 140px 0;
 
     @media only screen and (max-width: 794px) {
         padding: 42px 0px 60px 0px;
@@ -1005,7 +842,7 @@
             font-size: 46px;
             text-transform: uppercase;
             font-weight: 800;
-            color: #000;
+            color: $orangeColor;
 
             @media only screen and (max-width: 992px) {
                 font-size: 30px;
@@ -1073,19 +910,19 @@
     }
   
     &:nth-child(1):before {
-        background: url('../images/CAR-compact.jpeg') no-repeat center/cover;
+        background: url('../images/facilities.jpg') no-repeat center/cover;
     }
   
     &:nth-child(2):before {
-        background: url('../images/SUV-5.jpeg') no-repeat center/cover;
+        background: url('../images/commercial.jpg') no-repeat center/cover;
     }
   
     &:nth-child(3):before {
-        background: url('../images/SUV-7.jpeg') no-repeat center/cover;
+        background: url('../images/green.jpg') no-repeat center/cover;
     }
   
     &:nth-child(4):before {
-        background: url('../images/Van.jpeg') no-repeat center/cover;
+        background: url('../images/constraction.jpg') no-repeat center/cover;
     }
   }
   
@@ -1108,6 +945,8 @@
     font-size: 1.3rem;
     font-weight: bold;
     line-height: 1.2;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.4);
   }
   
   .vehicle-copy {
@@ -1187,121 +1026,6 @@
     .vehicle-card:focus-within .vehicle-content,
     .vehicle-card:focus-within .vehicle-content > *:not(.vehicle-title) {
       transition-duration: 0s;
-    }
-}
-
-
-// Services
-.services-wrapper {
-    background-color: #000;
-    padding: 120px 0 200px 0;
-
-    @media only screen and (max-width: 992px) {
-        padding: 42px 0px 60px 0px;
-    }
-
-    .our-services {
-        .section-head {
-            text-align: center;
-            margin-bottom: 48px;
-
-            @media only screen and (max-width: 992px) {
-                margin-bottom: 32px;
-            }
-
-            h2 {
-                font-size: 42px;
-                font-weight: 800;
-                text-transform: uppercase;
-                letter-spacing: 5px;
-
-                @media only screen and (max-width: 992px) {
-                    font-size: 30px;
-                }
-
-                span {
-                    color: $orangeColor;
-                }
-            }
-
-            p {
-                margin: 0;
-            }
-        }
-        .services-list {
-            display: flex;
-            justify-content: center;
-
-            @media only screen and (max-width: 575px) {
-                flex-direction: column;
-            }
-
-            .services-block {
-                padding: 24px 16px;
-                border-radius: 10px;
-                background-color: #1a1d1e;
-
-                @media only screen and (max-width: 575px) {
-                    text-align: center;
-                }
-
-                .services-item {
-                    padding: 16px 0;
-                    font-weight: 600;
-                    letter-spacing: 2px;
-                    font-size: 16px;
-                    color: #fff;
-
-                    @media only screen and (max-width: 600px) {
-                        font-size: 14px;
-                    }
-                }
-            }
-
-            .services-block-1 {
-                width: 50%;
-                margin-right: 24px;
-
-                @media only screen and (max-width: 600px) {
-                    padding-right: 10px;
-                }
-
-                @media only screen and (max-width: 575px) {
-                    margin-bottom: 24px;
-                    width: 100%;
-                }
-            }
-
-            .services-block-2 {
-                width: 50%;
-
-                @media only screen and (max-width: 575px) {
-                    width: 100%;
-                    padding-top: 24px;
-                }
-            }
-        }
-        .services-item {
-            color: #fff;
-            display: flex;
-            align-items: center;
-
-            .item-text {
-                margin-left: 12px;
-                line-height: 20px;
-                text-align: start;
-            }
-
-            span {
-                svg {
-                    width: 22px;
-                }
-                svg path {
-                    width: 22px;
-                    fill: $orangeColor;
-                }
-            }
-        }
     }
 }
 

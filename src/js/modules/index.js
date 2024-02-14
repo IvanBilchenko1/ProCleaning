@@ -152,6 +152,53 @@ function burgerMenu() {
   });
 }
 
+// header background change
+$(window).on('scroll', function() {
+  var scrollTop = $(window).scrollTop();
+
+  if (scrollTop === 0) {
+    $('header').removeClass('dark-background');
+  } else {
+    $('header').addClass('dark-background');
+  }
+});
+
+function visible(partial) {
+  var $t = partial,
+      $w = jQuery(window),
+      viewTop = $w.scrollTop(),
+      viewBottom = viewTop + $w.height(),
+      _top = $t.offset().top,
+      _bottom = _top + $t.height(),
+      compareTop = partial === true ? _bottom : _top,
+      compareBottom = partial === true ? _top : _bottom;
+
+  return ((compareBottom <= viewBottom) && (compareTop >= viewTop) && $t.is(':visible'));
+}
+
+$(window).scroll(function() {
+  if (visible($('.count-digit'))) {
+    if ($('.count-digit').hasClass('counter-loaded')) return;
+    $('.count-digit').addClass('counter-loaded');
+
+    $('.count-digit').each(function () {
+      var $this = $(this);
+      var finalValue = parseInt($this.text(), 10);
+      
+      jQuery({ Counter: 0 }).animate({ Counter: finalValue }, {
+        duration: 5000,
+        easing: 'swing',
+        step: function () {
+          $this.text(Math.ceil(this.Counter));
+        },
+        complete: function() {
+          $this.text(finalValue + "+");
+        }
+      });
+    });
+  }
+});
+
 $(document).ready(function() {
   var hasPopupShown = sessionStorage.getItem('popupShown');
 
@@ -231,74 +278,14 @@ $(document).ready(function() {
   });
 
   $(document).ready(function(){
-    $('.carousel').slick({
-      speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 2,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      dots:true,
-      arrows: false,
-      centerMode: true,
-      responsive: [{
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          // centerMode: true,
-  
-        }
-  
-      }, {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          dots: true,
-          infinite: true,
-        }
-      },
-
-      {
-        breakpoint: 1600,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 2,
-          dots: true,
-          infinite: true,
-          autoplay: true,
-          autoplaySpeed: 2000,
-        }
-      },
-
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-          infinite: true,
-          autoplay: true,
-          autoplaySpeed: 2000,
-        }
-      }]
+    $('.slick-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
     });
-  });
-
-// keep the same height for slider
-  $('.carousel').on('setPosition', function() {
-    var slides = $('.card');
-    var maxHeight = 0;
-  
-    slides.css('height', ''); // Reset slide heights
-  
-    slides.each(function() {
-      var slideHeight = $(this).outerHeight();
-      maxHeight = Math.max(maxHeight, slideHeight);
-    });
-  
-    slides.css('height', maxHeight); // Set equal height to all slides
-  });
+});
 
 export {
   isWebp,
