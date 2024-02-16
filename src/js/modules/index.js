@@ -278,12 +278,33 @@ $(document).ready(function() {
   });
 
   $(document).ready(function(){
-    $('.slick-slider').slick({
+    var $slickSlider = $('.slick-slider');
+
+    $slickSlider.slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
+        // autoplay: true,
+        // autoplaySpeed: 5000,
         nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
+    });
+
+    // Function to fadeIn titles
+    function fadeInTitles() {
+        $('.js-title-first').hide().fadeIn(2000);
+        $('.js-title-secound').hide().delay(1000).fadeIn(2000);
+        $('.js-title-last').hide().delay(2000).fadeIn(2000);
+    }
+
+    // Call fadeInTitles initially if first slide is shown
+    if ($slickSlider.slick('slickCurrentSlide') === 0) {
+        fadeInTitles();
+    }
+
+    // Call fadeInTitles on slick slider change only if first slide is shown
+    $slickSlider.on('afterChange', function(event, slick, currentSlide){
+        if (currentSlide === 0) {
+            fadeInTitles();
+        }
     });
 });
 

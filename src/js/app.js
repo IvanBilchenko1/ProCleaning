@@ -14,10 +14,6 @@ var setVanta = ()=>{
     minWidth: 200.00
   })
   }
-  _strk.push(function() {
-    setVanta()
-    window.edit_page.Event.subscribe( "Page.beforeNewOneFadeIn", setVanta )
-  })
 
 isWebp();
 homeRedirect();

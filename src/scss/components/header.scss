@@ -1,14 +1,100 @@
 // =====================================================================================================================
 .header {
   width: 100%;
-  background: rgba(30, 36, 42, 0.7);
+  background: white;
   transition: all 0.6s ease-in-out;
+  box-shadow: 0 0 3px rgba(0,0,0,.1);
+  border-bottom: 1px solid #e9e9e9;
 
-  .header__container {
+  .link {
+    color: #444444;
+    font-weight: 600;
+  }
+
+  .menu__item {
+    .link {
+      &::after {
+        height: 3px;
+      }
+    }
+  }
+
+  .header-top-banner {
+    background-color: #f4f4f4;
+    position: relative;
+    border-bottom: 1px solid #ededed;
+    z-index: 4;
+
+    .top-banner-contant {
+      a,
+      span {
+        color: #204163;
+        font-size: 16px;
+        font-weight: 600;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .phone-icon {
+        margin: 0;
+        margin-right: 3px;
+      }
+
+      span {
+        margin: 0 8px;
+      }
+
+      .phone-number {
+        svg {
+          width: 14px;
+          height: 14px;
+
+          path {
+            color: #204163;
+          }
+        }
+      }
+    }
+  
+    .serving-area {
+      color: #484848;
+    }
+  }
+  .sub-header__container {
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      margin-bottom: 0;
+    }
+    
     .header__nav-logo {
       a {
         img {
-          width: 50px;
+          width: 80px;
+
+          @media only screen and (max-width: 992px) {
+            width: 55px;
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 992px) {
+      height: 4.25rem;
+    }
+  }
+
+  .header__container {
+    height: 4.25rem;
+    padding-left: 0;
+    .header__nav-logo {
+      a {
+        img {
+          width: 80px;
 
           @media only screen and (max-width: 992px) {
             width: 55px;
@@ -28,7 +114,7 @@
   }
 
   &.dark-background {
-    background: rgba(30, 36, 42, 0.9);
+    background: white;
   }
   
 
@@ -36,19 +122,26 @@
   &__container {
     height: rem($headerHeight);
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: center;
 
     .header__menu {
       align-items: center;
       text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-left: 36px;
+
         .menu__list {
           margin: 0 58px 0;
           padding: 0;
           align-items: center;
 
           li {
-            margin-right: 16px;
+            margin-right: 32px;
+            
+            a {
+              font-size: 18px;
+            }
             
             &:last-child {
               margin-right: 0;

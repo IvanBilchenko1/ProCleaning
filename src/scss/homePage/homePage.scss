@@ -6,6 +6,7 @@
 .main-block-wrapper {
     .slick-next {
         right: 45px;
+        top: 58%;
     
         &::before {
             color: $orangeColor;
@@ -73,17 +74,33 @@
     }
 }
 
+.welcome-page-wrapper {
+    max-width: 100% !important;
+}
+
 .main-page {
     padding: $mainPadding;
 
     &.image-one {
         background: url('../images/main-blue.jpg') no-repeat center/cover;
         background-position: center;
+        height: 650px;
     }
 
     &.image-two {
         background: url('../images/home-page-banner.jpg') no-repeat center/cover;
         background-position: center;
+        height: 650px;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+        z-index: 1;
     }
 
     @media only screen and (max-width: 455px) {
@@ -93,7 +110,7 @@
     .main-title {
         background: rgba(0,0,0,0.2);
         width: 100% !important;
-        padding: 16px 0;
+        padding: 55px 0;
     }
 
     .main-title-text {
@@ -105,7 +122,11 @@
     }
 
     .main-title-subtext {
-        font-size: $text-24;
+        font-size: $text-16;
+
+        &.subtext-slide {
+            margin-top: 16px;
+        }
 
         @media only screen and (max-width: 550px) {
             font-size: $text-18;
@@ -115,6 +136,15 @@
             font-size: $text-16;
             letter-spacing: 1px;
         }
+    }
+
+    .welcome-sub-text {
+        font-size: 80px;
+        padding: 26px 0;
+    }
+
+    .bottom-sub-text {
+        font-size: 42px;
     }
 
     .btn {
@@ -378,7 +408,7 @@
   }
   .count-area {
       position: relative;
-      background:#4070a1;
+      background:#204163;
       text-align: center;
       padding-bottom: 30px;
       color: #fff;
